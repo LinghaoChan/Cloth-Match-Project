@@ -9,7 +9,7 @@ import torch
 
 class Data_Preprocessing(object):
     """
-    docstring
+    Reshape all images.
     """
 
     def __init__(self):
@@ -17,9 +17,9 @@ class Data_Preprocessing(object):
 
     def count_files(self, path: str):
         """
-        Count the number of images in this floder
+        Count the number of images in this floder.
         """
-        print(path, " ", len(os.listdir(path)))
+        print(path, "has:", len(os.listdir(path)), "clothes")
 
     def show_img(self, path="./Old_fashioned/Old_fashioned_1.jpg"):
         """
@@ -29,12 +29,13 @@ class Data_Preprocessing(object):
         # plt.imshow(img)
         # plt.axis('off')
         # plt.show()
-        # print(img.shape)
+        if(img.shape == (100, 150)):
+            print(path)
         return(img.shape)
 
     def show_image_message(self, path):
         """
-        Show the image infomation in a folder
+        Show the image infomation in a folder.
         """
         filelist = os.listdir(path)
         total_num = len(filelist)  # get the number of files
@@ -47,7 +48,7 @@ class Data_Preprocessing(object):
                     dic[img_shape] = 1
                 else:
                     dic[img_shape] += 1
-        return {path : dic}
+        return {path: dic}
 
     def read_floder(self):
         """
@@ -55,30 +56,35 @@ class Data_Preprocessing(object):
         """
         path = os.getcwd()
         l = os.listdir(path)
-        l.remove("data-processing.py")
+        ll = [i for i in l if not i.endswith(".py") and not i.endswith("__")]
+        l = ll
         self.filelist = l
+        print("\nHere are all floders:")
         for floder in l:
             floder = "./" + floder
             self.count_files(floder)
-        # image_shape_calculator = []
-        # for floder in l:
-        #     self.show_image_message(floder)
-        #     image_shape_calculator.append(self.show_image_message(floder))
-        # self.image_shape_set = image_shape_calculator
+        image_shape_calculator = []
+        print("\nAll images' shapes and number:")
+        for floder in l:
+            self.show_image_message(floder)
+            image_shape_calculator.append(self.show_image_message(floder))
+        print(image_shape_calculator)
+        self.image_shape_set = image_shape_calculator
 
-    def change_image_size(self, path, size=(150, 100, 3)):
+    def change_image_size(self, path, size=(100, 150, 3)):
         """
         Change the size of an image to size = 30 x 20 x 3
-        """  
-        self.show_img(path) 
+        """
+        self.show_img(path)
         img = Image.open(path)
-        out = img.resize((size[0], size[1]),Image.ANTIALIAS) #resize image with high-quality
-        out.save(path)   
+        # resize image with high-quality
+        out = img.resize((size[1], size[0]), Image.ANTIALIAS)
+        out.save(path)
         self.show_img(path)
 
     def batch_chage_image_size(self):
         """
-        docstring
+        reshape all images' size
         """
         print(self.filelist)
         l = self.filelist
@@ -90,14 +96,3 @@ class Data_Preprocessing(object):
                 print((img_path))
                 if img_path.endswith('.jpg'):
                     self.change_image_size(img_path)
-
-
-def main():
-    data_preprocessing = Data_Preprocessing()
-    data_preprocessing.read_floder()
-    # data_preprocessing.change_image_size("Casual_1.jpg")
-    data_preprocessing.batch_chage_image_size()
-
-if __name__ == "__main__":
-    # execute only if run as a script
-    main()
