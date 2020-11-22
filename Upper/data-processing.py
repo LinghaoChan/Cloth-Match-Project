@@ -88,7 +88,8 @@ class Data_Preprocessing(object):
             for img in img_list:
                 img_path = cur_path + "/" + img
                 print((img_path))
-                self.change_image_size(img_path)
+                if img_path.endswith('.jpg'):
+                    self.change_image_size(img_path)
 
 
 def main():
