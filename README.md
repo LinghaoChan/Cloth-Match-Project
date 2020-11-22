@@ -4,17 +4,13 @@
 
 | Type(in Chinese) | Type(in English) | Number |
 | ---------------- | ---------------- | ------ |
-| 工装             | Tooling          | 103    |
 | 简约             | Simplicity       | 559    |
-| 街头             | Street           |        |
 | 精神小伙         | Spirit_guy       | 504    |
-| 老气             | Old_fashioned    | 509    |
-| 内衣             | Underwear        | 75     |
-| 牛仔             | Cowboy           | 42     |
-| 休闲             | Casual           | 6899   |
+| 老气             | Old_fashioned    | 407    |
+| 牛仔             | Cowboy           | 148    |
+| 休闲             | Casual           | 7665   |
 | 运动             | Sport            | 748    |
-| 正式             | Formal           | 365    |
-| 其他             | Else             |        |
+| 正式             | Formal           | 407    |
 
 ### Lower body
 

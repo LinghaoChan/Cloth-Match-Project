@@ -19,7 +19,7 @@ class Data_Preprocessing(object):
         """
         Count the number of images in this floder.
         """
-        print(path, "has:", len(os.listdir(path)), "clothes")
+        print(path, "has:", len(os.listdir(path))-1, "clothes")
 
     def show_img(self, path="./Old_fashioned/Old_fashioned_1.jpg"):
         """
