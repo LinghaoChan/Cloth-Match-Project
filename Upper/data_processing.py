@@ -55,9 +55,8 @@ class Data_Preprocessing(object):
         Get the infomation of images.
         """
         path = os.getcwd()
-        l = os.listdir(path)
-        ll = [i for i in l if not i.endswith(".py") and not i.endswith("__")]
-        l = ll
+        l = ["Casual", "Cowboy", "Formal",
+             "Old_fashioned", "Simplicity", "Spirit_guy", "Sport"]
         self.filelist = l
         print("\nHere are all floders:")
         for floder in l:
