@@ -16,7 +16,8 @@ class Data_Preprocessing(object):
         """
         docstring
         """
-        print(len(os.listdir(path)))
+        print(path, " ", len(os.listdir(path)))
+
 
     def read_pic(self):
         path = os.getcwd()
