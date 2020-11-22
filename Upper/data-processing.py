@@ -46,9 +46,9 @@ class Data_Preprocessing(object):
                     dic[img_shape] = 1
                 else:
                     dic[img_shape] += 1
-        return dic
+        return {path : dic}
 
-    def read_pic(self):
+    def read_floder(self):
         """
         Get the infomation of images.
         """
@@ -58,13 +58,15 @@ class Data_Preprocessing(object):
         for floder in l:
             floder = "./" + floder
             self.count_files(floder)
+        image_shape_calculator = []
+        for floder in l:
+            self.show_image_message(floder)
+            print(self.show_image_message(floder))
 
 
 def main():
     data_preprocessing = Data_Preprocessing()
-    data_preprocessing.read_pic()
-    data_preprocessing.show_img()
-    print(data_preprocessing.show_image_message("Cowboy"))
+    data_preprocessing.read_floder()
 
 
 if __name__ == "__main__":
